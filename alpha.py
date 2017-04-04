@@ -141,7 +141,7 @@ class AlphaExperiment(object):
 
     @property
     def media_runs(self):
-        return [run for run in self._runs if run.is_media]
+        return [run for run in self.runs if run and run.is_media]
 
     @property
     def media_group(self):
@@ -153,7 +153,7 @@ class AlphaExperiment(object):
 
     @property
     def data_runs(self):
-        return [run for run in self._runs if not run.is_media]
+        return [run for run in self.runs if run and not run.is_media]
 
     @property
     def means(self):
@@ -188,6 +188,9 @@ class AlphaExperiment(object):
 
 
 if __name__ == '__main__':
-    a = AlphaExperiment('/home/brendan/PycharmProjects/alpha_dispersion/alfa 31.3.2017.txt', media_end_time='11:40:54', grouping=3, strict_grouping=False)
-    for g in a.groups:
-        print g.means()
+    a = AlphaExperiment('/home/brendan/PycharmProjects/alpha_dispersion/alfa 31.3.2017.txt',
+                        media_end_time='11:40:54',
+                        grouping=[(1, 2, 3), (4, 5), (6, 7, 8, 9), (15, 14, 13)],
+                        strict_grouping=True)
+    print a.media_means
+
