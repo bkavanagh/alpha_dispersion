@@ -2,7 +2,7 @@ from alpha import AlphaExperiment
 from matplotlib import pyplot as plt
 
 
-a = AlphaExperiment('/home/brendan/PycharmProjects/alpha_dispersion/alfa 31.3.2017.txt',
+a = AlphaExperiment('./alfa 31.3.2017.txt',
                     media_end_time='11:40:54',
                     grouping=[(1,2,3), (4,5), (6,7,8,9), (15, 14, 13)],
                     strict_grouping=True)
