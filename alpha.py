@@ -66,7 +66,11 @@ class AlphaExperiment(object):
     lower_frequency_bound = 0.22
 
     def __init__(self, filepath, media_end_time='00:00:00', grouping=1, strict_grouping=False):
-        self.csv_reader = csv.reader(open(filepath, 'r'), skipinitialspace=True)
+        
+        if isinstance(filepath, basestring):
+            self.csv_reader = csv.reader(open(filepath, 'r'), skipinitialspace=True)
+        else:
+            self.csv_reader = csv.reader(filepath, skipinitialspace=True)
 
         self._media_end_datetime = None
         self._str_media_end_time = media_end_time

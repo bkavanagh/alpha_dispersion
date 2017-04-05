@@ -17,7 +17,7 @@ ax.set_xscale('log')
 ms = sorted(media_means)
 mc = [media_means.get(x) for x in ms]
 ax.plot(list(ms), list(mc))
-
+plt.title('Alpha Dispersion: {} Media Runs, {} Data Runs'.format(len(a.data_runs), len(a.media_runs)))
 plt.xlabel('Frequency kHz')
 plt.ylabel('Capacitance mF')
 
